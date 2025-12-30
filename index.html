@@ -29,7 +29,7 @@ body{
   color:var(--text);
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
   padding:30px;
   position:relative;
   overflow-x:hidden;
@@ -67,6 +67,29 @@ body{
   background:radial-gradient(circle, #22c55e, #14b8a6);
   top:40%;
   left:50%;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  width:100%;
+  max-width:1100px;
+  display:flex;
+  justify-content:flex-end;
+  gap:25px;
+  position:relative;
+  z-index:2;
+  margin-bottom:20px;
+}
+
+.navbar a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  transition:color 0.3s;
+}
+
+.navbar a:hover{
+  color:var(--accent);
 }
 
 /* ===== MAIN WRAPPER ===== */
@@ -185,6 +208,7 @@ footer{
 @media(max-width:768px){
   .hero h1{font-size:2.2rem}
   .section{padding:40px 25px}
+  .navbar { justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:15px; }
 }
 </style>
 </head>
@@ -195,6 +219,12 @@ footer{
 <div class="shape shape1"></div>
 <div class="shape shape2"></div>
 <div class="shape shape3"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="showcase.html">Showcase</a>
+</div>
 
 <div class="wrapper">
 
