@@ -6,28 +6,37 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    background-color: #f8f9fc;
+    color: #2d3748;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Navbar with burger menu */
+/* Navbar - Modern & Clean */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #4a90e2, #50e3c2);
-    padding: 1rem 2rem;
-    position: sticky;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 1.2rem 2rem;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .menu-toggle {
@@ -38,64 +47,83 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    gap: 6px;
 }
 
 .burger-menu span {
     height: 3px;
-    width: 25px;
-    background: white;
-    margin-bottom: 5px;
-    transition: all 0.3s;
+    width: 28px;
+    background: #4a5568;
+    border-radius: 3px;
+    transition: all 0.4s ease;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
-    color: white;
+    color: #4a5568;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+    transition: width 0.4s ease;
 }
 
 .nav-links a:hover {
-    color: #333;
+    color: #667eea;
 }
 
-/* Burger menu for mobile */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
 @media (max-width: 768px) {
     .burger-menu {
         display: flex;
     }
 
     .nav-links {
-        display: none;
-        flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #4a90e2, #50e3c2);
-        padding: 1rem 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 16px 16px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
     }
 
-    .nav-links li {
-        margin: 1rem 0;
-        text-align: center;
-    }
-
-    .menu-toggle:checked + .burger-menu + .nav-links {
-        display: flex;
+    .menu-toggle:checked ~ .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .menu-toggle:checked + .burger-menu span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(8px, 8px);
     }
 
     .menu-toggle:checked + .burger-menu span:nth-child(2) {
@@ -103,153 +131,166 @@ body {
     }
 
     .menu-toggle:checked + .burger-menu span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+        transform: rotate(-45deg) translate(8px, -8px);
     }
 }
 
-/* Hero section */
+/* Hero Section - Modern Overlay */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .hero-image {
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(70%);
+    filter: brightness(0.6);
 }
 
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
+    max-width: 800px;
+    padding: 2rem;
     color: white;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-buttons {
     display: flex;
+    gap: 1.5rem;
     justify-content: center;
-    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn {
-    padding: 1rem 2rem;
-    border-radius: 5px;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
 }
 
 .whatsapp {
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     color: white;
 }
 
 .whatsapp:hover {
-    background: #1DA851;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
 }
 
 .call {
-    background: #007BFF;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
 }
 
 .call:hover {
-    background: #0056b3;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
 }
 
-/* About section */
-.about {
-    padding: 4rem 2rem;
+/* Sections - Clean Cards */
+.about, .services {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about h1, .services h1 {
+    font-size: 2.8rem;
     text-align: center;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 2rem auto;
-    max-width: 800px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.about h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.about p {
+.about p, .services > p {
+    text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #718096;
 }
 
-.about-image {
-    max-width: 100%;
+.about-image, .pricing-image {
+    width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+    transition: transform 0.4s ease;
 }
 
-/* Services section */
-.services {
-    padding: 4rem 2rem;
-    text-align: center;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 2rem auto;
-    max-width: 800px;
+.about-image:hover, .pricing-image:hover {
+    transform: translateY(-8px);
 }
 
-.services h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.services p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
+/* Pricing Card - Glassmorphism Style */
 .pricing-card {
-    background: #f9f9f9;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .pricing-card h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
+    color: #2d3748;
 }
 
 .price {
-    font-size: 1.8rem;
-    color: #4a90e2;
-    margin-bottom: 1rem;
-}
-
-.pricing-image {
-    max-width: 100%;
-    height: auto;
-    margin: 1rem 0;
-    border-radius: 10px;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 1.5rem 0;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 2.5rem;
+    background: #1a202c;
+    color: #a0aec0;
+    font-size: 0.95rem;
+    margin-top: 4rem;
 }
+
+/* Optional: Add Inter font via Google Fonts in HTML head */
