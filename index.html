@@ -22,6 +22,41 @@
     "description": "Website building service for small businesses."
   }
   </script>
+
+  <style>
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 30px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-small {
+      flex: 1;
+      height: 32px; /* 50% of original btn-large height 64px */
+      font-size: 0.6em; /* 50% of original btn-large font-size 1.2em */
+    }
+
+    .btn-large {
+      flex: 2;
+      height: 44.8px; /* 70% of original 64px */
+      font-size: 0.84em; /* 70% of original 1.2em */
+    }
+
+    @media (max-width: 768px) {
+      .button-wrapper {
+        max-width: 100%;
+      }
+
+      .button-wrapper a {
+        flex: 1;
+      }
+    }
+  </style>
 </head>
 <body data-theme="dark">
   <nav class="sticky-nav">
@@ -53,7 +88,7 @@
       <div class="button-wrapper">
         <a href="tel:+447521482302" class="buy-btn btn-small" aria-label="Call us">📱 Call</a>
         <a href="pricing.html" class="buy-btn btn-large">📦 Packages</a>
-        <a href="https://wa.me/447521482302" class="whatsapp-btn btn-small" aria-label="Message on WhatsApp">💬 Chat</a>
+        <a href="https://wa.me/447521482302" class="buy-btn btn-small" aria-label="Message on WhatsApp">💬 Chat</a>
       </div>
     </section>
   </main>
