@@ -9,31 +9,36 @@
   <link rel="icon" type="image/jpeg" href="IMG_0936.jpeg">
   <style>
     /* Smaller card styling for first project and center alignment */
-    .project.crepcode {
+    .project.crepcode,
+    .project.plumber { /* added class for second project */
       display: flex;
       flex-direction: column;
       align-items: center; /* center everything */
       text-align: center;
     }
 
-    .project.crepcode img {
+    .project.crepcode img,
+    .project.plumber img { /* images same size */
       width: 200px;         /* small width */
       max-width: 100%;      /* responsive */
       height: auto;         /* maintain aspect ratio */
       margin-bottom: 10px;  /* spacing below image */
     }
 
-    .project.crepcode h3 {
+    .project.crepcode h3,
+    .project.plumber h3 {
       font-size: 1.1rem;    /* smaller title */
       margin-bottom: 5px;
     }
 
-    .project.crepcode p {
+    .project.crepcode p,
+    .project.plumber p {
       font-size: 0.85rem;   /* smaller description */
       margin-bottom: 10px;
     }
 
-    .project.crepcode .buy-btn {
+    .project.crepcode .buy-btn,
+    .project.plumber .buy-btn {
       padding: 8px 15px;    /* smaller button */
       font-size: 0.9rem;
     }
@@ -75,7 +80,7 @@
         </div>
 
         <!-- Second Project (Plumber Example) -->
-        <div class="project">
+        <div class="project plumber">
           <img src="IMG_1279.jpeg" alt="Project 2: Plumber Example" loading="lazy">
           <h3>Plumber Example</h3>
           <p>SEO-optimized page for service providers.</p>
