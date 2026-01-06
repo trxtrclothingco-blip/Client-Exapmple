@@ -54,7 +54,7 @@ body::before {
   animation: zoomPulse 30s ease-in-out infinite alternate;
 }
 
-/* ✅ LIGHT MODE BACKGROUND FIX (KEY CHANGE) */
+/* ✅ LIGHT MODE BACKGROUND FIX */
 body[data-theme="light"]::before {
   filter: brightness(1);
 }
@@ -151,6 +151,14 @@ body[data-theme="light"]::before {
 
 .section:hover {
   transform: translateY(-8px);
+}
+
+/* ✅ LIGHT MODE FULL WHITE CARD BACKGROUND */
+body[data-theme="light"] .section {
+  background: #ffffff;      /* Fully opaque white */
+  backdrop-filter: none;    /* Remove see-through blur */
+  border: 1px solid #d1d5db; /* Light gray border for definition */
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.1); /* Subtle glow */
 }
 
 /* HEADINGS */
