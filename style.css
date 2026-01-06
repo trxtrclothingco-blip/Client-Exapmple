@@ -54,6 +54,11 @@ body::before {
   animation: zoomPulse 30s ease-in-out infinite alternate;
 }
 
+/* ✅ LIGHT MODE BACKGROUND FIX (KEY CHANGE) */
+body[data-theme="light"]::before {
+  filter: brightness(1);
+}
+
 @keyframes zoomPulse {
   0% { transform: scale(1); }
   100% { transform: scale(1.08); }
